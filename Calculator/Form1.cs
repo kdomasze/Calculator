@@ -37,6 +37,11 @@ namespace Calculator
         {
             ToggleSign();
         }
+        public void BackspaceEvent(object sender, EventArgs e)
+        {
+            RemoveSymbol();
+        }
+
         private void ResetLists()
         {
             _values.Clear();
@@ -89,6 +94,7 @@ namespace Calculator
             {
                 return;
             }
+
             if (_values[_currentValue].StartsWith("-"))
             {
                 // removes the negative sign
@@ -98,6 +104,34 @@ namespace Calculator
             {
                 // adds the negative sign
                 _values[_currentValue] = "-" + _values[_currentValue];
+            }
+
+            Output.Text = _values[_currentValue];
+        }
+
+        private void RemoveSymbol()
+        {
+            if (_values[_currentValue] == "0")
+            {
+                return;
+            }
+
+            if (_values[_currentValue].EndsWith("."))
+            {
+                _decimalMode = false;
+                _values[_currentValue] = _values[_currentValue].Remove(_values[_currentValue].Length - 1, 1);
+            }
+            else if (_values[_currentValue].Length == 2 && _values[_currentValue].StartsWith("-"))
+            {
+                _values[_currentValue] = "0";
+            }
+            else if (_values[_currentValue].Length == 1)
+            {
+                _values[_currentValue] = "0";
+            }
+            else
+            {
+                _values[_currentValue] = _values[_currentValue].Remove(_values[_currentValue].Length - 1, 1);
             }
 
             Output.Text = _values[_currentValue];

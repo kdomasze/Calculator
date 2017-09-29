@@ -339,6 +339,7 @@
             this.buttonBackspace.TabIndex = 2;
             this.buttonBackspace.Text = "⌫";
             this.buttonBackspace.UseVisualStyleBackColor = true;
+            this.buttonBackspace.Click += new System.EventHandler(this.BackspaceEvent);
             // 
             // buttonClear
             // 
