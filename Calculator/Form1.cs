@@ -54,6 +54,19 @@ namespace Calculator
             OutputResult();
         }
 
+        public void ClearEverythingEvent(object sender, EventArgs e)
+        {
+            ResetLists();
+        }
+
+        public void ClearEntryEvent(object sender, EventArgs e)
+        {
+            _values[_currentValue] = "0";
+            _decimalMode = false;
+            
+            Output.Text = _values[_currentValue];
+        }
+
         private void ResetLists()
         {
             _values.Clear();
@@ -65,7 +78,7 @@ namespace Calculator
             _currentValue = 0;
             _decimalMode = false;
 
-            Output.Text = "0";
+            Output.Text = _values[_currentValue];
         }
 
         private void InsertDecimal()

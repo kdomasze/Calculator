@@ -48,8 +48,8 @@
             this.button7 = new System.Windows.Forms.Button();
             this.buttonDivision = new System.Windows.Forms.Button();
             this.buttonBackspace = new System.Windows.Forms.Button();
-            this.buttonClear = new System.Windows.Forms.Button();
-            this.buttonClearEverything = new System.Windows.Forms.Button();
+            this.buttonClearAll = new System.Windows.Forms.Button();
+            this.buttonClearEntry = new System.Windows.Forms.Button();
             this.Output = new System.Windows.Forms.Label();
             this.PanelLayout.SuspendLayout();
             this.NumPadLayout.SuspendLayout();
@@ -98,8 +98,8 @@
             this.NumPadLayout.Controls.Add(this.button7, 0, 1);
             this.NumPadLayout.Controls.Add(this.buttonDivision, 3, 0);
             this.NumPadLayout.Controls.Add(this.buttonBackspace, 2, 0);
-            this.NumPadLayout.Controls.Add(this.buttonClear, 1, 0);
-            this.NumPadLayout.Controls.Add(this.buttonClearEverything, 0, 0);
+            this.NumPadLayout.Controls.Add(this.buttonClearAll, 1, 0);
+            this.NumPadLayout.Controls.Add(this.buttonClearEntry, 0, 0);
             this.NumPadLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NumPadLayout.Location = new System.Drawing.Point(3, 88);
             this.NumPadLayout.Name = "NumPadLayout";
@@ -346,29 +346,31 @@
             this.buttonBackspace.UseVisualStyleBackColor = true;
             this.buttonBackspace.Click += new System.EventHandler(this.BackspaceEvent);
             // 
-            // buttonClear
+            // buttonClearAll
             // 
-            this.buttonClear.AutoSize = true;
-            this.buttonClear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F);
-            this.buttonClear.Location = new System.Drawing.Point(172, 3);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(163, 146);
-            this.buttonClear.TabIndex = 1;
-            this.buttonClear.Text = "C";
-            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClearAll.AutoSize = true;
+            this.buttonClearAll.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonClearAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F);
+            this.buttonClearAll.Location = new System.Drawing.Point(172, 3);
+            this.buttonClearAll.Name = "buttonClearAll";
+            this.buttonClearAll.Size = new System.Drawing.Size(163, 146);
+            this.buttonClearAll.TabIndex = 1;
+            this.buttonClearAll.Text = "C";
+            this.buttonClearAll.UseVisualStyleBackColor = true;
+            this.buttonClearAll.Click += new System.EventHandler(this.ClearEverythingEvent);
             // 
-            // buttonClearEverything
+            // buttonClearEntry
             // 
-            this.buttonClearEverything.AutoSize = true;
-            this.buttonClearEverything.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClearEverything.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F);
-            this.buttonClearEverything.Location = new System.Drawing.Point(3, 3);
-            this.buttonClearEverything.Name = "buttonClearEverything";
-            this.buttonClearEverything.Size = new System.Drawing.Size(163, 146);
-            this.buttonClearEverything.TabIndex = 0;
-            this.buttonClearEverything.Text = "CE";
-            this.buttonClearEverything.UseVisualStyleBackColor = true;
+            this.buttonClearEntry.AutoSize = true;
+            this.buttonClearEntry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonClearEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F);
+            this.buttonClearEntry.Location = new System.Drawing.Point(3, 3);
+            this.buttonClearEntry.Name = "buttonClearEntry";
+            this.buttonClearEntry.Size = new System.Drawing.Size(163, 146);
+            this.buttonClearEntry.TabIndex = 0;
+            this.buttonClearEntry.Text = "CE";
+            this.buttonClearEntry.UseVisualStyleBackColor = true;
+            this.buttonClearEntry.Click += new System.EventHandler(this.ClearEntryEvent);
             // 
             // Output
             // 
@@ -421,8 +423,8 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button buttonDivision;
         private System.Windows.Forms.Button buttonBackspace;
-        private System.Windows.Forms.Button buttonClear;
-        private System.Windows.Forms.Button buttonClearEverything;
+        private System.Windows.Forms.Button buttonClearAll;
+        private System.Windows.Forms.Button buttonClearEntry;
         private System.Windows.Forms.Label Output;
     }
 }
