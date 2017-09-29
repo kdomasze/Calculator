@@ -123,6 +123,7 @@
             this.buttonEquals.TabIndex = 19;
             this.buttonEquals.Text = "=";
             this.buttonEquals.UseVisualStyleBackColor = true;
+            this.buttonEquals.Click += new System.EventHandler(this.EqualsEvent);
             // 
             // buttonDot
             // 
@@ -174,6 +175,7 @@
             this.buttonAddition.TabIndex = 15;
             this.buttonAddition.Text = "+";
             this.buttonAddition.UseVisualStyleBackColor = true;
+            this.buttonAddition.Click += new System.EventHandler(this.OperationEvent);
             // 
             // button3
             // 
@@ -225,6 +227,7 @@
             this.buttonSubtraction.TabIndex = 11;
             this.buttonSubtraction.Text = "-";
             this.buttonSubtraction.UseVisualStyleBackColor = true;
+            this.buttonSubtraction.Click += new System.EventHandler(this.OperationEvent);
             // 
             // button6
             // 
@@ -276,6 +279,7 @@
             this.buttonMultiplication.TabIndex = 7;
             this.buttonMultiplication.Text = "×";
             this.buttonMultiplication.UseVisualStyleBackColor = true;
+            this.buttonMultiplication.Click += new System.EventHandler(this.OperationEvent);
             // 
             // button9
             // 
@@ -327,6 +331,7 @@
             this.buttonDivision.TabIndex = 3;
             this.buttonDivision.Text = "÷";
             this.buttonDivision.UseVisualStyleBackColor = true;
+            this.buttonDivision.Click += new System.EventHandler(this.OperationEvent);
             // 
             // buttonBackspace
             // 

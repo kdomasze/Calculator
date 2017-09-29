@@ -14,6 +14,7 @@ namespace Calculator
     public partial class Calculator : Form
     {
         private List<string> _values = new List<string>();
+        private List<Operation> _operations = new List<Operation>();
         private int _currentValue;
         private bool _decimalMode;
 
@@ -37,15 +38,29 @@ namespace Calculator
         {
             ToggleSign();
         }
+
         public void BackspaceEvent(object sender, EventArgs e)
         {
             RemoveSymbol();
+        }
+
+        public void OperationEvent(object sender, EventArgs e)
+        {
+            AddOperation(((Button)sender).Name);
+        }
+
+        public void EqualsEvent(object sender, EventArgs e)
+        {
+            OutputResult();
         }
 
         private void ResetLists()
         {
             _values.Clear();
             _values.Add("0");
+
+            _operations.Clear();
+            _operations.Add(Operation.Null);
 
             _currentValue = 0;
             _decimalMode = false;
@@ -135,6 +150,77 @@ namespace Calculator
             }
 
             Output.Text = _values[_currentValue];
+        }
+
+        private void AddOperation(string name)
+        {
+            switch (name)
+            {
+                case "buttonDivision":
+                    _operations.Add(Operation.Division);
+                    break;
+                case "buttonAddition":
+                    _operations.Add(Operation.Addition);
+                    break;
+                case "buttonMultiplication":
+                    _operations.Add(Operation.Multiplication);
+                    break;
+                case "buttonSubtraction":
+                    _operations.Add(Operation.Subtraction);
+                    break;
+            }
+
+            _values.Add("0");
+            _currentValue++;
+            _decimalMode = false;
+
+            Output.Text = _values[_currentValue];
+        }
+
+        private void OutputResult()
+        {
+            double result = 0;
+            int operationIndex = 0;
+
+            foreach (var value in _values)
+            {
+                double parse;
+
+                if (!double.TryParse(value, out parse))
+                {
+                    throw new ApplicationException("Failed to parse value: " + value);
+                }
+
+                switch (_operations[operationIndex])
+                {
+                    case Operation.Null:
+                        result = parse;
+                        break;
+                    case Operation.Division:
+                        result /= parse;
+                        break;
+                    case Operation.Addition:
+                        result += parse;
+                        break;
+                    case Operation.Multiplication:
+                        result *= parse;
+                        break;
+                    case Operation.Subtraction:
+                        result -= parse;
+                        break;
+                }
+
+                operationIndex++;
+            }
+
+            ResetLists();
+            _values[_currentValue] = result.ToString();
+            Output.Text = result.ToString();
+        }
+
+        public enum Operation
+        {
+            Addition, Subtraction, Multiplication, Division, Null
         }
     }
 }
